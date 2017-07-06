@@ -1,10 +1,8 @@
 markdown
-html5lib
+html5lib==0.9999999
 python-openid
-South
 python-memcached
-django==1.6.0
+django==1.8.0
 django-debug-toolbar
 django-endless-pagination
 pytz
-

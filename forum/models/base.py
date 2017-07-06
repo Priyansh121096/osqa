@@ -10,7 +10,6 @@ from django.utils.http import urlquote  as django_urlquote
 from django.utils.html import strip_tags
 from django.conf import settings as django_settings
 from django.core.urlresolvers import reverse
-from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 from django.core.cache import cache
 from django.template.defaultfilters import slugify
@@ -277,7 +276,7 @@ class BaseModel(models.Model):
         ])
 
     def save(self, full_save=False, *args, **kwargs):
-        put_back = [k for k, v in self.__dict__.items() if isinstance(v, models.expressions.ExpressionNode)]
+        put_back = [k for k, v in self.__dict__.items() if isinstance(v, models.expressions.BaseExpression)]
 
         if hasattr(self, '_state'):
             self._state.db = 'default'

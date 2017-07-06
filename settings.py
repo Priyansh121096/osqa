@@ -20,7 +20,6 @@ MIDDLEWARE_CLASSES = [
     'forum.middleware.cancel.CancelActionMiddleware',
     'forum.middleware.admin_messages.AdminMessagesMiddleware',
     'forum.middleware.custom_pages.CustomPagesFallbackMiddleware',
-    'django.middleware.transaction.TransactionMiddleware',
     'forum.middleware.django_cookies.CookiePostHandlerMiddleware',
 ]
 
@@ -123,12 +122,6 @@ if DEBUG:
         INSTALLED_APPS.append('debug_toolbar')
     except:
         pass
-
-try:
-    import south
-    INSTALLED_APPS.append('south')
-except:
-    pass
 
 # Try loading Gunicorn web server
 try:

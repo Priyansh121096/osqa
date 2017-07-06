@@ -1,5 +1,5 @@
 import math
-from django.utils.datastructures import SortedDict
+from collections import OrderedDict
 from django import template
 from django.core.paginator import Paginator, EmptyPage
 from django.utils.translation import ugettext as _
@@ -51,7 +51,7 @@ class PaginatorContext(object):
         self.id = id
         if sort_methods:
             self.has_sort = True
-            self.sort_methods = SortedDict(data=sort_methods)
+            self.sort_methods = OrderedDict(sort_methods)
 
             if not default_sort:
                 default_sort = sort_methods[0][0]
